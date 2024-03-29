@@ -1,12 +1,10 @@
 pipeline {
-    agent {
-        docker { image 'alpine' }
-    }
+    agent any
 
     stages {
         stage('Build') {
             steps {
-                echo 'Building crud-flask-webapp application ...'
+                sh 'docker build -t ${IMAGE_NAME} .'
             }
         }
 
@@ -17,12 +15,14 @@ pipeline {
         }
 
         stage('Release') {
+            when { branch 'main' }
             steps {
                 echo 'Releasing crud-flask-webapp application ...'
             }
         }
 
         stage('Deploy') {
+            when { branch 'main' }
             steps {
                 echo 'Deploing crud-flask-webapp application ...'
             }
