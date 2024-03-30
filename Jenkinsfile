@@ -15,14 +15,10 @@ pipeline {
         }
 
         stage('Test application in container') {
-            agent {
-                dockerfile true
-            }
-
             steps {
-                sh 'pwd' 
-                sh 'ls'
-                sh 'python3 app/run.py'
+                sh 'docker run -itd --name testingapp $APP_IMAGE_NAME' 
+                sh 'docker exec testingapp curl localhost:5000'
+                //sh 'docker rm -f --volumes testingapp'
             }
         }
 
@@ -32,7 +28,7 @@ pipeline {
             steps {
                 sh 'docker tag $APP_IMAGE_NAME $APP_IMAGE_NAME:latest'
                 sh 'docker tag $APP_IMAGE_NAME $APP_IMAGE_NAME:$APP_IMAGE_TAG'
-                sh('echo $REGISTRY_CREDENTIALS_PSW | docker login -u $REGISTRY_CREDENTIALS_USR --password-stdin')
+                sh 'echo $REGISTRY_CREDENTIALS_PSW | docker login -u $REGISTRY_CREDENTIALS_USR --password-stdin'
                 sh 'docker push $APP_IMAGE_NAME:$APP_IMAGE_TAG'
                 sh 'docker push $APP_IMAGE_NAME:latest'
                 sh 'docker logout'
@@ -50,7 +46,9 @@ pipeline {
 
     post {
         always {
-            sh 'docker images -q | xargs docker rmi -f'
+            //sh 'docker rm -f --volumes testingapp'
+            //sh 'docker rmi -f $APP_IMAGE_NAME'
+            sh 'post tasks'
         }
     }
 }
