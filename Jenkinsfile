@@ -16,9 +16,9 @@ pipeline {
 
         stage('Test application in container') {
             steps {
-                sh 'docker run -itd --name testingapp $APP_IMAGE_NAME' 
+                sh 'docker run -itd --name testingapp $APP_IMAGE_NAME'
+                sh 'sleep 1'
                 sh 'docker exec testingapp curl localhost:5000'
-                //sh 'docker rm -f --volumes testingapp'
             }
         }
 
@@ -46,9 +46,8 @@ pipeline {
 
     post {
         always {
-            //sh 'docker rm -f --volumes testingapp'
-            //sh 'docker rmi -f $APP_IMAGE_NAME'
-            sh 'post tasks'
+            sh 'docker rm -f --volumes testingapp'
+            sh 'docker rmi -f $APP_IMAGE_NAME'
         }
     }
 }
