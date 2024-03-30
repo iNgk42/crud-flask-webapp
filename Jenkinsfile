@@ -20,9 +20,9 @@ pipeline {
             }
 
             steps {
-                sh 'apk update' 
+                /*sh 'apk update' 
                 sh 'apk add curl'
-                //sh 'curl localhost:5000'
+                sh 'curl localhost:5000'*/
                 sh 'curl localhost'
             }
         }
