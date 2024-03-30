@@ -24,7 +24,7 @@ pipeline {
         stage('Deploy') {
             when { branch 'main' }
             steps {
-                echo 'Deploing crud-flask-webapp application ...'
+                echo 'Deploying crud-flask-webapp application ...'
             }
         }
     }
