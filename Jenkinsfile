@@ -31,7 +31,7 @@ pipeline {
 
     post {
         always {
-            echo 'Some stuff to always do after stages ..'
+            echo 'Some stuff to always do after stages ...'
         }
     }
 }
