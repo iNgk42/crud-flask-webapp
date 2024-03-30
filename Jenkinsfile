@@ -24,14 +24,14 @@ pipeline {
         stage('Deploy') {
             when { branch 'main' }
             steps {
-                echo 'Deploing crud-flask-webapp application ...'
+                echo 'Deploying crud-flask-webapp application ...'
             }
         }
     }
 
     post {
         always {
-            echo 'Some stuff to always do after stages ..'
+            echo 'Some stuff to always do after stages ...'
         }
     }
 }
