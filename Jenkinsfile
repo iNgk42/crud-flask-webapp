@@ -20,9 +20,9 @@ pipeline {
             }
 
             steps {
-                sh 'apk update' 
-                sh 'apk add curl'
-                sh 'curl localhost:5000'
+                sh 'pwd' 
+                sh 'ls'
+                sh 'python3 app/run.py'
             }
         }
 
