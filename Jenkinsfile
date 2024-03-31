@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         APP_IMAGE_NAME = 'ingk42/siflaweb'
-        APP_IMAGE_TAG = 'v0.0.$BUILD_ID'
+        APP_IMAGE_TAG = "v0.0.$BUILD_ID"
         REGISTRY_CREDENTIALS = credentials('docker-registry')
     }
 
