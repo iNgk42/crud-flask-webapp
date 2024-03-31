@@ -18,7 +18,7 @@ pipeline {
             steps {
                 sh 'docker run -itd --name testingapp $APP_IMAGE_NAME'
                 //sh 'sleep 1'
-                sh 'docker exec testingapp curl localhost:5000 > /dev/null'
+                sh 'docker exec testingapp curl localhost:5000'
             }
         }
 
