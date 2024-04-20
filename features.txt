@@ -1,0 +1,21 @@
+[ ] Jenkins: pipeline qui trigger le repo github et build, test, release ... deploy
+[ ] verifier si la due_date est superieur ou égale à a date actuelle
+[ ] prévoir un bouton de retour à l'accueil sur la page liste des taches
+[ ] bouton cancel lors de la creation d'une tache
+[ ] 
+[ ] 
+[ ] 
+
+
+[ ] Editer une tache
+[ ] cliquer sur une tache pour l'afficher
+[ ] liste des tâches qui sont done/deleted
+[ ] formater le texte dans le text area pour mieux présenter la description
+[ ] 
+[ ] 
+[ ] 
+[ ] 
+[ ] 
+[ ] 
+[ ] 
+[ ] 
